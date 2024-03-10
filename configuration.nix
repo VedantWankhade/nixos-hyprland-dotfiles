@@ -29,6 +29,7 @@
   services.blueman.enable = true;
 
   # SSH
+  services.openssh.enable = true;
   programs.ssh.startAgent = true;
 
   # Set your time zone.
@@ -204,9 +205,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
