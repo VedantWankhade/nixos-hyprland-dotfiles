@@ -1,23 +1,14 @@
 #!/usr/bin/env bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
-
-# Hyprland
-echo "Setting up hyprland dots..."
+# Clean up
+echo "Cleaning up old configs..."
+echo "Cleaning up ~/.config/hypr"
 rm -rf ~/.config/hypr
-cp -r ./hypr ~/.config/
-echo "${GREEN}Done${NC}" 
-
-# Waybar
-echo "Setting up waybar dots..."
+echo "Cleaning up ~/.config/waybar"
 rm -rf ~/.config/waybar
-cp -r ./waybar ~/.config/
-echo "${GREEN}Done${NC}"
+echo "Cleaning up ~/Pictures/Wallpapers/`ls ./Pictures/Wallpapers`"
+rm -rf ~/Pictures/Wallpapers/`ls ./Pictures/Wallpapers`
 
-# Wallpaper
-echo "Setting up wallpapers..."
-cp ./wallpapers/* ~/Pictures/Wallpapers/
-echo "${GREEN}Done${NC}"
-
+# Stow
+echo "Stowing..."
+stow .
