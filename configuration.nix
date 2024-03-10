@@ -184,6 +184,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     tree
+    pcmanfm
     fzf
     zoxide
     kitty
