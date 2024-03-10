@@ -160,6 +160,9 @@
       google-chrome
       spotify
       vscode
+      stow
+      swww
+      feh
     ];
   };
 
@@ -180,7 +183,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
     tree
     fzf
     zoxide
@@ -188,10 +190,8 @@
     wofi
     dunst
     libnotify
-    swww
     ripgrep
     networkmanagerapplet
-    feh
     pavucontrol
     bat
   ];
