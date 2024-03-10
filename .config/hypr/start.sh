@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 swww init &
-swww img ~/Pictures/Wallpapers/forest.jpg &
+swww img ~/Pictures/Wallpapers/planets.jpeg &
 nm-applet --indicator &
 waybar &
 dunst &
