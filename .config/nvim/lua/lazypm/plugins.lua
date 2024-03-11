@@ -15,7 +15,7 @@ require("lazy").setup({
 	},
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.5' },
 	{ 'nvim-lua/plenary.nvim', tag = '0.1.4' }, -- for telescope (not working with dependency option)
-	{ 'nvim-tree/nvim-web-devicons', tag = '0.99' },
+	{ 'nvim-tree/nvim-web-devicons' },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	-- lsp
 	{'williamboman/mason.nvim'},
@@ -31,28 +31,23 @@ require("lazy").setup({
       "nvim-tree/nvim-tree.lua",
       version = "*",
       lazy = false,
-      dependencies = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
+        config = function()
         require("nvim-tree").setup {}
       end,
     },
+    -- git 
+    { 'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end },
     -- tabs
     {'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      -- 'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      animation = true,
-      -- insert_at_start = true,
-      -- …etc.
-    },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
-  },
+        init = function() vim.g.barbar_auto_setup = false end,
+        opts = {
+          -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+          animation = true,
+          -- insert_at_start = true,
+          -- …etc.
+        },
+        version = '^1.0.0', -- optional: only update when a new 1.x version is released
+     },
     -- statusline
     { 'nvim-lualine/lualine.nvim' }
 })
