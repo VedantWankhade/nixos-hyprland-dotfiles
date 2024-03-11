@@ -6,3 +6,4 @@
 * Tmux config
 * Application themes
 * Waybar redesign
+* Fix adding ssh identity on each reboot (NixOS sshAgent config related)
