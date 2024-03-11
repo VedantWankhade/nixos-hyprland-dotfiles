@@ -12,3 +12,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazypm.plugins")
+require("lazypm.lsp")
+

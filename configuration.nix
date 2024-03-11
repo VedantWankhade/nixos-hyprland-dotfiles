@@ -188,6 +188,7 @@
   environment.systemPackages = with pkgs; [
     tree
     gcc
+    python3
     nodejs_20
     go
     jdk
