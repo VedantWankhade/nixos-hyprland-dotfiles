@@ -158,6 +158,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       google-chrome
+      tree-sitter
       spotify
       vscode
       stow
@@ -186,6 +187,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     tree
+    gcc
+    nodejs_20
+    go
+    jdk
     unzip
     pcmanfm
     fzf
