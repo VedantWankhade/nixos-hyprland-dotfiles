@@ -14,3 +14,21 @@ vim.opt.rtp:prepend(lazypath)
 require("lazypm.plugins")
 require("lazypm.lsp")
 
+require("catppuccin").setup({
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        treesitter = true,
+        notify = false,
+        barbar = true
+    }
+})
+
+require('lualine').setup {
+    options = {
+        theme = "catppuccin",
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' }
+    }
+}
