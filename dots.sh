@@ -6,12 +6,15 @@ echo "Cleaning up ~/.config/hypr"
 rm -rf ~/.config/hypr
 echo "Cleaning up ~/.config/waybar"
 rm -rf ~/.config/waybar
-echo "`ls ./.local/share/wallpapers`"
-for file in ./.local/share/wallpapers/*; do
+if [ -d ~/.local/share/wallpapers ];
+then
+  echo "~/.local/share/wallpapers exists, cleaning up -\n`ls ./.local/share/wallpapers`"
+  for file in ./.local/share/wallpapers/*; do
     if [ -e ~/.local/share/wallpapers/$(basename "$file") ]; then
-        rm -rf ~/.local/share/wallpapers/$(basename "$file")
+        rm -r ~/.local/share/wallpapers/$(basename "$file")
     fi
-done
+  done
+fi
 echo "Cleaning up old cursor themes..."
 if [ -d ~/.icons ]; 
 then
