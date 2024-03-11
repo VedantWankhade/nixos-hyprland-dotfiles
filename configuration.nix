@@ -164,6 +164,7 @@
       swww
       feh
       mpv
+      fd
     ];
   };
 
