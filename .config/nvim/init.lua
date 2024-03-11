@@ -1,1 +1,3 @@
-print("hello")
+require("custom")
+require("lazypm")
+
