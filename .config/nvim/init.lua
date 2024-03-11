@@ -1,3 +1,2 @@
-require("custom")
 require("lazypm")
-
+require("custom")
