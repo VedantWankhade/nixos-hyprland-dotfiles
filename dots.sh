@@ -29,3 +29,7 @@ fi
 # Stow
 echo "Stowing..."
 stow .
+
+# Post stow setup
+echo "Running post install hooks"
+bat cache --build
