@@ -1,0 +1,2 @@
+golang.Go
+Catppuccin.catppuccin-vsc

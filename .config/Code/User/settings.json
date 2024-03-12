@@ -1,0 +1,13 @@
+{
+    "editor.fontFamily": "'Maple Mono NF', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "editor.semanticHighlighting.enabled": true,
+    // prevent VSCode from modifying the terminal colors
+    "terminal.integrated.minimumContrastRatio": 1,
+    // make the window's titlebar use the workbench colors
+    "window.titleBarStyle": "custom",
+    "gopls": {
+      "ui.semanticTokens": true
+    },
+    "workbench.colorTheme": "Catppuccin Mocha"
+}

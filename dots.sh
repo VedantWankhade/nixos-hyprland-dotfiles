@@ -32,4 +32,9 @@ stow --no-folding .
 
 # Post stow setup
 echo "Running post install hooks"
+echo "Cleaning bat cache"
 bat cache --build
+echo "Installing vscode extensions"
+while IFS= read -r line; do
+    code --install-extension "$line"
+done < "./.config/Code/extensionids.list.txt"
