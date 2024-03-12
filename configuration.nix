@@ -30,6 +30,22 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # Tmux
+  programs.tmux = {
+   enable = true;
+    extraConfigBeforePlugins = ''
+      set -g default-terminal "screen-256color"
+      set-option -sa terminal-overrides ",xterm-kitty:RGB"
+      set-option -g @log-file '/tmp/tmux.log'
+      set -g mouse on
+    '';
+    plugins = [ pkgs.tmuxPlugins.catppuccin pkgs.tmuxPlugins.sensible ];
+    extraConfig = ''
+      # not working for some reason
+      # set-option -g @catppuccin_flavour "frappe"
+    '';
+  };
+
   # SSH
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
@@ -118,6 +134,7 @@
     shellAliases = {
       ll = "ls -l";
       lt = "tree";
+      tmux = "tmux -u"; # use utf-8 for tmux
       sysswitch = "sudo nixos-rebuild switch";
       sysboot = "sudo nixos-rebuild switch";
       sysedit = "sudo nvim /etc/nixos/configuration.nix";
