@@ -28,7 +28,7 @@ fi
 
 # Stow
 echo "Stowing..."
-stow .
+stow --no-folding .
 
 # Post stow setup
 echo "Running post install hooks"
