@@ -165,6 +165,7 @@
       swww
       feh
       mpv
+      lazygit
       fd
     ];
   };
@@ -206,6 +207,7 @@
     bat
     brightnessctl
     playerctl
+    wl-clipboard
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
