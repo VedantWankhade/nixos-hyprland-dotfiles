@@ -23,6 +23,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # Set DNS servers
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
   # Bleutooth
   hardware.bluetooth.enable = true;
