@@ -182,10 +182,12 @@
       vscode
       stow
       swww
+      grimblast
       feh
       mpv
       lazygit
       fd
+
     ];
   };
 
