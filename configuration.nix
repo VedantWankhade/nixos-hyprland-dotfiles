@@ -88,8 +88,12 @@
     enableNvidiaPatches = true;
   };
   programs.waybar.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
   programs.nm-applet = {
     enable = true;
     indicator = true;
@@ -100,6 +104,9 @@
     layout = "us";
     xkbVariant = "";
   };
+
+  # Polkit agent
+  # security.polkit.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -184,6 +191,7 @@
       swww
       grimblast
       feh
+      apple-cursor
       mpv
       lazygit
       fd
@@ -210,6 +218,9 @@
   environment.systemPackages = with pkgs; [
     tree
     gcc
+    nwg-look
+    # libsForQt5.polkit-qt
+    # lxqt.lxqt-policykit
     python3
     nodejs_20
     go

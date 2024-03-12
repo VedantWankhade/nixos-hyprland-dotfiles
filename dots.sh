@@ -15,16 +15,6 @@ then
     fi
   done
 fi
-echo "Cleaning up old cursor themes..."
-if [ -d ~/.icons ]; 
-then
-  echo "~/.icons exists..."
-  for file in .icons/*; do
-     if [ -e ~/.icons/$(basename "$file") ]; then
-       rm -rf ~/.icons/$(basename "$file")
-     fi
-  done
-fi
 
 # Stow
 echo "Stowing..."
