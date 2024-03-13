@@ -1,3 +1,5 @@
+@import "mocha.css";
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -5,8 +7,8 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: @base;
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -90,6 +92,11 @@ button:hover {
 #mpd {
     padding: 0 10px;
     color: #ffffff;
+    /*border-radius: 20px; */
+    margin-right: 4px;
+    margin-left: 4px;
+   
+    font-weight: bold;
 }
 
 #window,
@@ -108,17 +115,17 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: @surface0;
 }
 
 #battery {
-    background-color: #ffffff;
+    background-color: @text;
     color: #000000;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: @base;
+    background-color: @green;
 }
 
 @keyframes blink {
@@ -129,7 +136,7 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: @red;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -143,12 +150,14 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: @green;
+    color: @base;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: @green;
+    color: @base;
+    margin-left: -14px;
 }
 
 #disk {
@@ -156,24 +165,26 @@ label:focus {
 }
 
 #backlight {
-    background-color: #90b1b1;
+    background-color: @surface0;
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: @blue;
+    color: @base;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: @red;
+    color: @base;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    background-color: @yellow;
+    color: @base;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    background-color: @text;
     color: #2a5c45;
 }
 
@@ -187,8 +198,8 @@ label:focus {
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+    background-color: @mauve;
+    color: @base;
     min-width: 100px;
 }
 
@@ -201,15 +212,16 @@ label:focus {
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: @peach;
+    color: @base;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: @red;
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: @surface0;
 }
 
 #tray > .passive {
