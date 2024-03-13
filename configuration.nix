@@ -161,6 +161,8 @@
     if [ -x "$(command -v zoxide)" ]; then
       eval "$(zoxide init zsh)"
     fi
+
+    # export GTK_THEME='Catppuccin-Mocha-Compact-Mauve-Dark'
   '';
  
   # Editor
@@ -195,7 +197,12 @@
       mpv
       lazygit
       fd
-
+      #(pkgs.catppuccin-gtk.override {
+        # accents = [ "mauve" ]; # You can specify multiple accents here to output multiple themes
+        # size = "compact";
+        # tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
+        # variant = "mocha";
+        # })
     ];
   };
 
