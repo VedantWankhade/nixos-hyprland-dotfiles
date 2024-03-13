@@ -226,8 +226,8 @@
     go
     jdk
     unzip
-    pcmanfm
     fzf
+    xfce.thunar
     zoxide
     kitty
     wofi
