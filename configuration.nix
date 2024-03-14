@@ -30,6 +30,14 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # Dynamic linked libraries (to run unpackaged binaries)
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      # any library to enable globally
+    ];
+  };
+
   # Tmux
   programs.tmux = {
    enable = true;
