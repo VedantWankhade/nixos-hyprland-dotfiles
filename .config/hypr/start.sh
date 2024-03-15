@@ -5,5 +5,6 @@ swww init &
 swww img ~/.local/share/wallpapers/darker_unicat.jpeg &
 nm-applet --indicator &
 waybar &
-dunst &
+# dunst &
+swaync &
 blueman-applet &

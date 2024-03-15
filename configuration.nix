@@ -246,7 +246,8 @@
     zoxide
     kitty
     wofi
-    dunst
+    # dunst
+    swaynotificationcenter
     libnotify
     ripgrep
     networkmanagerapplet
