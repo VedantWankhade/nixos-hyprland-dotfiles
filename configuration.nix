@@ -62,7 +62,7 @@
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  i18n.defaultLocale = "en_US.UTF-8"; # for some reason en_IN.UTF-8 gives error
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
@@ -149,7 +149,7 @@
     shellAliases = {
       ll = "ls -l";
       lt = "tree";
-      tmux = "tmux -u"; # use utf-8 for tmux
+      # tmux = "tmux -u"; # use utf-8 for tmux (not needded as fixed by setting locale to en_US.UTF-8
       sysswitch = "sudo nixos-rebuild switch";
       sysboot = "sudo nixos-rebuild switch";
       sysedit = "sudo nvim /etc/nixos/configuration.nix";
@@ -248,6 +248,7 @@
     unzip
     fzf
     xfce.thunar
+    btop
     zoxide
     kitty
     wofi
