@@ -9,5 +9,6 @@
     "gopls": {
       "ui.semanticTokens": true
     },
-    "workbench.colorTheme": "Catppuccin Mocha"
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "green"
 }

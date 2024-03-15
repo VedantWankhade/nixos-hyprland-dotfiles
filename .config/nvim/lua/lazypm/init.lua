@@ -20,8 +20,13 @@ require("catppuccin").setup({
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
-        notify = false,
-        barbar = true
+        notify = true,
+        barbar = true,
+        mason = true,
+        telescope = {
+            enable = true,
+            style = "nvchad"
+        },
     }
 })
 
