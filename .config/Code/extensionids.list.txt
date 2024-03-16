@@ -1,2 +1,3 @@
 golang.Go
 Catppuccin.catppuccin-vsc
+Codeium.codeium
