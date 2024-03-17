@@ -242,8 +242,9 @@
     # libsForQt5.polkit-qt
     # lxqt.lxqt-policykit
     python3
-    nodejs_20
     go
+    # nodejs_20
+    bun
     typescript
     jdk
     unzip
