@@ -244,6 +244,7 @@
     python3
     nodejs_20
     go
+    typescript
     jdk
     unzip
     fzf
