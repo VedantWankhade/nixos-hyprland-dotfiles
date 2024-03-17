@@ -242,7 +242,7 @@
     # libsForQt5.polkit-qt
     # lxqt.lxqt-policykit
     python3
-    nodejs_20
+    nodejs_20 # replace with bun in future
     go
     typescript
     jdk
