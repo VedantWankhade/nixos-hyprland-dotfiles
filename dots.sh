@@ -12,6 +12,15 @@ remove_symlink() {
     fi
 }
 
+# Function to safely remove existing directory
+remove_directory() {
+    local target=$1
+    if [ -d "$target" ]; then
+        echo "Removing existing directory: $target"
+        rm -rf "$target"
+    fi
+}
+
 # Clean up
 echo "Cleaning up old configs..."
 remove_symlink "$HOME/.config/hypr"
@@ -19,11 +28,7 @@ remove_symlink "$HOME/.config/waybar"
 
 if [ -d "$HOME/.local/share/wallpapers" ]; then
     echo "Cleaning up ~/.local/share/wallpapers..."
-    for file in "$HOME/.local/share/wallpapers/"*; do
-        if [ -e "$file" ]; then
-            rm -rf "$file"
-        fi
-    done
+    remove_directory "$HOME/.local/share/wallpapers"
 fi
 
 # Stow
