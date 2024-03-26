@@ -1,4 +1,5 @@
 # My humble NixOS + Hyprland setup.
+## Please beware of using the `dots.sh` script as it may remove your existing configuration files.
 ## TODO
 * ~~Fix `dots.sh` - if symlinked dirs exist for _~/.local/share/wallpapers_ or _~/.icons_, the script deletes the dirs from the project itself as they point recursively~~ (fixed temporarily with stow --no-folding)
 * Fix lua and markdown lsp for neovim
