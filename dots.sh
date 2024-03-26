@@ -1,19 +1,29 @@
 #!/usr/bin/env bash
 
+# Function to safely remove existing symlink
+remove_symlink() {
+    local target=$1
+    if [ -L "$target" ]; then
+        echo "Removing existing symlink: $target"
+        rm "$target"
+    elif [ -e "$target" ]; then
+        echo "Error: $target exists and is not a symlink. Please remove it manually."
+        exit 1
+    fi
+}
+
 # Clean up
 echo "Cleaning up old configs..."
-echo "Cleaning up ~/.config/hypr"
-rm -rf ~/.config/hypr
-echo "Cleaning up ~/.config/waybar"
-rm -rf ~/.config/waybar
-if [ -d ~/.local/share/wallpapers ];
-then
-  echo "~/.local/share/wallpapers exists, cleaning up -\n`ls ./.local/share/wallpapers`"
-  for file in ./.local/share/wallpapers/*; do
-    if [ -e ~/.local/share/wallpapers/$(basename "$file") ]; then
-        rm -r ~/.local/share/wallpapers/$(basename "$file")
-    fi
-  done
+remove_symlink "$HOME/.config/hypr"
+remove_symlink "$HOME/.config/waybar"
+
+if [ -d "$HOME/.local/share/wallpapers" ]; then
+    echo "Cleaning up ~/.local/share/wallpapers..."
+    for file in "$HOME/.local/share/wallpapers/"*; do
+        if [ -e "$file" ]; then
+            rm -rf "$file"
+        fi
+    done
 fi
 
 # Stow
@@ -27,4 +37,4 @@ bat cache --build
 echo "Installing vscode extensions"
 while IFS= read -r line; do
     code --install-extension "$line"
-done < "./.config/Code/extensionids.list.txt"
+done < "$HOME/.config/Code/extensionids.list.txt"
