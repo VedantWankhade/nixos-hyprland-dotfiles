@@ -37,3 +37,5 @@ require('lualine').setup {
         component_separators = { left = ')', right = '(' }
     }
 }
+
+require('Comment').setup()
