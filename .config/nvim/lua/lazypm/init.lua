@@ -25,7 +25,6 @@ require("catppuccin").setup({
         mason = true,
         telescope = {
             enable = true,
-            style = "nvchad"
         },
     }
 })
