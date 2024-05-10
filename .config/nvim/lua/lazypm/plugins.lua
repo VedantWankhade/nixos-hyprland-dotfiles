@@ -114,4 +114,5 @@ require("lazy").setup({
         "rcarriga/nvim-notify",
         }
     },
+    {"stevearc/conform.nvim"}
 })
