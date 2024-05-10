@@ -7,4 +7,3 @@ vim.keymap.set('n', '<leader>ps', function()
 end
 )
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<leader>cc', function () return vim.fn['codeium#Chat']() end, { expr = true, silent = true })
