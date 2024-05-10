@@ -7,3 +7,4 @@ vim.keymap.set('n', '<leader>ps', function()
 end
 )
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>')

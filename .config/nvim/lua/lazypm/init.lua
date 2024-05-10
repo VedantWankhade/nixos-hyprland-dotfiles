@@ -39,3 +39,4 @@ require('lualine').setup {
 }
 
 require('Comment').setup()
+vim.notify = require("notify")
