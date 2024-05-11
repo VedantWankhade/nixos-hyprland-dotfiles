@@ -69,6 +69,15 @@ require("lazy").setup({
         vim.o.timeout = true
         vim.o.timeoutlen = 300
       end,
+      config = function()
+        local wk = require('which-key')
+        wk.register({
+          ["<leader>"] = {
+          ["y"] = {
+            '<cmd>WhichKey y<CR>', '+Yank'
+          }
+        }})
+      end,
       opts = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
