@@ -46,6 +46,10 @@
       set-option -sa terminal-overrides ",xterm-kitty:RGB"
       set-option -g @log-file '/tmp/tmux.log'
       set -g mouse on
+      bind-key h select-pane -L
+      bind-key l select-pane -R
+      bind-key j select-pane -D
+      bind-key k select-pane -U
     '';
     plugins = [ pkgs.tmuxPlugins.catppuccin pkgs.tmuxPlugins.sensible ];
     extraConfig = ''
@@ -88,6 +92,17 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
   # services.xserver.desktopManager.gnome.enable = true;
+
+  # Docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+  virtualisation.docker.daemon.settings = {
+    data-root = "$HOME/docker-data/data";
+  };
 
   # Hyprland
   programs.hyprland = {
