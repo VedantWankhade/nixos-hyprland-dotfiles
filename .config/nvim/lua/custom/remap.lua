@@ -1,9 +1,10 @@
 local builtin = require('telescope.builtin')
 vim.g.mapleader = " "
 vim.keymap.set('n', '<C-p>', builtin.git_files, {desc='Search git files'})
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc='Search files'})
+vim.keymap.set('n', '<leader>fs', builtin.find_files, {desc='Search files'})
 vim.keymap.set('n', '<leader>fp', builtin.git_files, {desc= 'Search git files'})
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {desc="Toggle file explorer"})
+vim.keymap.set('n', '<leader>fe', ':NvimTreeToggle<CR>', {desc="Toggle file explorer"})
+vim.keymap.set('n', '<leader>ff', ':NvimTreeFocus<CR>', {desc="Focus file explorer"})
 vim.keymap.set('n', '<leader>g', ':LazyGit<CR>', {desc='Open LazyGit'})
 vim.keymap.set('n', '<leader>y', '"+y', {desc='Yank (copy) to system clipboard'})
 vim.keymap.set('n', '<leader>p', '"+p', {desc='Paste from system clipboard at cursor'})
