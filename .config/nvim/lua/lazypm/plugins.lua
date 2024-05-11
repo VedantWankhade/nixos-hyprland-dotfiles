@@ -122,4 +122,5 @@ require("lazy").setup({
     -- use opts = {} for passing setup options
     -- this is equalent to setup({}) function
 },
+{'akinsho/toggleterm.nvim', version = "*", config = true}
 })
