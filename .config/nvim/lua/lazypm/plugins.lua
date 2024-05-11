@@ -121,6 +121,15 @@ require("lazy").setup({
     config = true
     -- use opts = {} for passing setup options
     -- this is equalent to setup({}) function
-},
-{'akinsho/toggleterm.nvim', version = "*", config = true}
+    },
+    {'akinsho/toggleterm.nvim', version = "*", config = true},
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio",
+            "leoluz/nvim-dap-go",
+            "theHamsta/nvim-dap-virtual-text"
+        } 
+    }
 })

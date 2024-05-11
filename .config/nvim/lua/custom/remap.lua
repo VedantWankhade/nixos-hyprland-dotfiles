@@ -14,3 +14,6 @@ vim.api.nvim_set_keymap('i', '<C-x>', 'if err != nil {\n\n}<Up><Tab>', {noremap 
 vim.keymap.set('n', '<A-l>', ':BufferNext<CR>', {desc= 'Next tab'})
 vim.keymap.set('n', '<A-h>', ':BufferPrevious<CR>', {desc= 'Previous tab'})
 vim.keymap.set('n', '<A-q>', ':BufferClose<CR>', {desc= 'Close tab'})
+vim.keymap.set('n', '<leader>db', ':DapToggleBreakpoint<CR>', {desc= 'Toggle breakpoint'})
+vim.keymap.set('n', '<leader>dr', ':DapContinue<CR>', {desc= 'Run debuger or continue'})
+

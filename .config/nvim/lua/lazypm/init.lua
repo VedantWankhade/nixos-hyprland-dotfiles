@@ -60,5 +60,22 @@ require("noice").setup({
 
 require('which-key').register {
         ['<leader>f'] = { name = 'Files', _ = 'which_key_ignore' },
+        ['<leader>d'] = { name = 'Debugger', _ = 'which_key_ignore' },
       }
 
+require("dapui").setup()
+require("dap-go").setup()
+
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
