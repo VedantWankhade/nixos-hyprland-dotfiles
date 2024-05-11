@@ -8,4 +8,4 @@ vim.keymap.set('n', '<leader>y', '"+y', {desc='Yank (copy) to system clipboard'}
 vim.keymap.set('n', '<leader>p', '"+p', {desc='Paste from system clipboard at cursor'})
 vim.keymap.set('n', '<leader>P', '"+P', {desc='Paste from system clipboard above cursor'})
 vim.keymap.set('n', '<leader>t', ':ToggleTerm<CR>')
-
+vim.api.nvim_set_keymap('i', '<C-x>', 'if err != nil {\n\n}\n<Up><Up><Tab>', {noremap = true, silent = true})
