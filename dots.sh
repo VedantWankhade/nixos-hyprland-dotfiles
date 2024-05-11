@@ -43,3 +43,7 @@ echo "Installing vscode extensions"
 while IFS= read -r line; do
     code --install-extension "$line"
 done < "$HOME/.config/Code/extensionids.list.txt"
+echo "Installing go tools..."
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install mvdan.cc/gofumpt@latest
+go install golang.org/x/tools/cmd/goimports@latest
