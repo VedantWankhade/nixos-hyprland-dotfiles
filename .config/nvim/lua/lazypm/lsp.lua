@@ -7,6 +7,9 @@ lsp_zero.on_attach(function(client, bufnr)
         buffer = bufnr,
         preserve_mappings = false,
     })
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', 'gd', builtin.lsp_definitions, {desc='[G]oto [D]efinition', buffer=bufnr})
+    vim.keymap.set('n', 'gr', builtin.lsp_references, {desc="[G]o to [R]eferences", buffer = bufnr})
 end)
 
 require('mason').setup({})
