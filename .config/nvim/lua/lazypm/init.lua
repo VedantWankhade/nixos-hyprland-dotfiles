@@ -61,6 +61,7 @@ require("noice").setup({
 require('which-key').register {
         ['<leader>f'] = { name = 'Files', _ = 'which_key_ignore' },
         ['<leader>d'] = { name = 'Debugger', _ = 'which_key_ignore' },
+        ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
       }
 
 require("dapui").setup()
