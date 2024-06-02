@@ -29,6 +29,12 @@
   # Bleutooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  
+  # Firefox
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-devedition-bin;
+  };
 
   # Dynamic linked libraries (to run unpackaged binaries)
   programs.nix-ld = {
