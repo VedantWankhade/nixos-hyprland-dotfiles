@@ -99,15 +99,31 @@
   services.xserver.displayManager.gdm.wayland = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
-  # Docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-  virtualisation.docker.daemon.settings = {
-    data-root = "$HOME/docker-data/data";
+virtualisation = {
+    containers.enable = true;
+    # Docker
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+      daemon.settings = {
+        data-root = "/docker-data/data";
+      };
+    };
+    # Podman
+    podman = {
+      enable = true;
+      # extraPackages = [ pkgs.podman-desktop pkgs.podman-compose ];
+      defaultNetwork.settings.dns_enabled = true;
+      # dockerCompat = true;
+      #networkSocket = {
+      #  enable = true;
+      #  server = "ghostunnel";
+      #};
+    };
   };
 
   # Hyprland
