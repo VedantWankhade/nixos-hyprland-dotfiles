@@ -22,3 +22,5 @@ vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps'
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n','gI', builtin.lsp_implementations, {desc='[G]oto [I]mplementation'})
+
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
