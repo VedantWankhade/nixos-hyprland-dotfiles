@@ -3,7 +3,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 window#waybar {
@@ -116,17 +116,20 @@ button:hover {
 }
 
 #clock {
-    background-color: @surface0;
+    /*background-color: @surface0;*/
+    color: @text;
+    border-top: 2px solid @text;
 }
 
 #battery {
-    background-color: @text;
-    color: #000000;
+    /*background-color: @text;*/
+    color: @mauve;
+    border-top: 2px solid @mauve;
 }
 
 #battery.charging, #battery.plugged {
-    color: @base;
-    background-color: @green;
+    color: @green;
+    /*background-color: @green;*/
 }
 
 @keyframes blink {
@@ -137,8 +140,8 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: @red;
-    color: #ffffff;
+    /*background-color: @red;*/
+    color: @red;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -151,14 +154,15 @@ label:focus {
 }
 
 #cpu {
-    background-color: @green;
-    color: @base;
+    /*background-color: @green;*/
+    color: @blue;
+    border-top: 2px solid @blue;
 }
 
 #memory {
-    background-color: @green;
-    color: @base;
-    margin-left: -14px;
+    /*background-color: @green;*/
+    color: @green;
+    border-top: 2px solid @green;
 }
 
 #disk {
@@ -166,27 +170,32 @@ label:focus {
 }
 
 #backlight {
-    background-color: @surface0;
+    color: @flamingo;
+    border-top: 2px solid @flamingo;
 }
 
 #network {
-    background-color: @blue;
-    color: @base;
+    /*background-color: @blue;*/
+    color: @flamingo;
+    border-top: 2px solid @flamingo;
 }
 
 #network.disconnected {
-    background-color: @red;
-    color: @base;
+    /* background-color: @red; */
+    color: @red;
+    border-top: 2px solid @red;
 }
 
 #pulseaudio {
-    background-color: @yellow;
-    color: @base;
+    /* background-color: @yellow; */
+    color: @yellow;
+    border-top: 2px solid @yellow;
 }
 
 #pulseaudio.muted {
-    background-color: @text;
-    color: #2a5c45;
+    /* background-color: @text; */
+    color: @text;
+    border-top: 2px solid @text;
 }
 
 #wireplumber {
@@ -198,31 +207,43 @@ label:focus {
     background-color: #f53c3c;
 }
 
+#custom-logout {
+    font-size: 26px;
+    color: @red;
+    margin-right: 4px;
+    border-top: 2px solid @red;
+}
+
 #custom-media {
-    background-color: @mauve;
-    color: @base;
+    /* background-color: @flamingo; */
+    color: @flamingo;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    /* background-color: @rosewater; */
+    color: @rosewater;
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    /* background-color: #ffa000; */
+    color: @rosewater;
 }
 
 #temperature {
-    background-color: @peach;
-    color: @base;
+    /* background-color: @peach; */
+    color: @peach;
+    border-top: 2px solid @peach;
 }
 
 #temperature.critical {
     background-color: @red;
+    border-top: 2px solid @red;
 }
 
 #tray {
-    background-color: @surface0;
+    /* background-color: @surface0; */
+    border-top: 2px solid @text;
 }
 
 #tray > .passive {
@@ -244,20 +265,23 @@ label:focus {
 }
 
 #mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
+    /* background-color: #66cc99; */
+    color: @rosewater;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
+    /* background-color: #000000; */
+    color: #000
 }
 
 #mpd.stopped {
-    background-color: #90b1b1;
+    /* background-color: @text1; */
+    color: @text1;
 }
 
 #mpd.paused {
-    background-color: #51a37a;
+    /* background-color: @text; */
+    color: @text;
 }
 
 #language {
@@ -290,4 +314,13 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
+}
+
+#custom-wl-gammarelay-temperature {
+    color: @text;
+    border-top: 2px solid @text;
+}
+
+#custom-notification {
+    border-top: 2px solid @text;
 }

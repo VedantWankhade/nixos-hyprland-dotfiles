@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -22,84 +22,25 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  programs.nm-applet = {
+    enable = true;
+    indicator = true;
+  };
   networking.networkmanager.enable = true;
+
   # Set DNS servers
   networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
-  # Bleutooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-  
-  # Firefox
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition-bin;
-  };
-
-  # Dynamic linked libraries (to run unpackaged binaries)
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      # any library to enable globally
-    ];
-  };
-
-  # Tmux
-  programs.tmux = {
-   enable = true;
-    extraConfigBeforePlugins = ''
-      set -g default-terminal "screen-256color"
-      set-option -sa terminal-overrides ",xterm-kitty:RGB"
-      set-option -g @log-file '/tmp/tmux.log'
-      set -g mouse on
-      bind-key h select-pane -L
-      bind-key l select-pane -R
-      bind-key j select-pane -D
-      bind-key k select-pane -U
-    '';
-    plugins = [ pkgs.tmuxPlugins.catppuccin pkgs.tmuxPlugins.sensible ];
-    extraConfig = ''
-      # not working for some reason
-      # set-option -g @catppuccin_flavour "frappe"
-    '';
-  };
-
-  # SSH
-  services.openssh.enable = true;
-  programs.ssh.startAgent = true;
-
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8"; # for some reason en_IN.UTF-8 gives error
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
-  };
 
   # Power management
   services.power-profiles-daemon.enable = false;
   powerManagement.enable = true;
   services.tlp.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-virtualisation = {
+  # Virtualisation
+  virtualisation = {
     containers.enable = true;
     # Docker
     docker = {
@@ -126,22 +67,67 @@ virtualisation = {
     };
   };
 
+  # Tmux
+  programs.tmux = {
+   enable = true;
+    extraConfigBeforePlugins = ''
+      set -g default-terminal "screen-256color"
+      set-option -sa terminal-overrides ",xterm-kitty:RGB"
+      set-option -g @log-file '/tmp/tmux.log'
+      set -g mouse on
+      bind-key h select-pane -L
+      bind-key l select-pane -R
+      bind-key j select-pane -D
+      bind-key k select-pane -U
+    '';
+    plugins = [ pkgs.tmuxPlugins.catppuccin pkgs.tmuxPlugins.sensible ];
+    extraConfig = ''
+      # not working for some reason
+      # set-option -g @catppuccin_flavour "frappe"
+    '';
+  };
+
+  # SSH
+  services.openssh.enable = true;
+  programs.ssh.startAgent = true;
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_IN";
+    LC_IDENTIFICATION = "en_IN";
+    LC_MEASUREMENT = "en_IN";
+    LC_MONETARY = "en_IN";
+    LC_NAME = "en_IN";
+    LC_NUMERIC = "en_IN";
+    LC_PAPER = "en_IN";
+    LC_TELEPHONE = "en_IN";
+    LC_TIME = "en_IN";
+  };
+
+  # Enable the X11 windowing system.
+  # You can disable this if you're only using the Wayland session.
+  services.xserver.enable = true;
+
+  # Pantheon desktop
+  # services.xserver.desktopManager.pantheon.enable = true;
+  # programs.pantheon-tweaks.enable = true;
+  # services.pantheon.apps.enable = true;
+  # services.pantheon.contractor.enable = true;
+  # services.xserver.displayManager.lightdm.greeters.pantheon.enable = true;
+
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
   # Hyprland
+  services.hypridle.enable = true;
+  programs.hyprlock.enable = true;
+  programs.waybar.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
-  };
-  programs.waybar.enable = true;
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-  programs.nm-applet = {
-    enable = true;
-    indicator = true;
   };
 
   # Configure keymap in X11
@@ -149,9 +135,6 @@ virtualisation = {
     layout = "us";
     xkbVariant = "";
   };
-
-  # Polkit agent
-  # security.polkit.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -177,7 +160,7 @@ virtualisation = {
   # services.xserver.libinput.enable = true;
 
   # Shell
-  users.defaultUserShell = pkgs.zsh; 
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -192,7 +175,7 @@ virtualisation = {
       sysedit = "sudo nvim /etc/nixos/configuration.nix";
       sysview = "bat /etc/nixos/configuration.nix";
     };
- 
+
     # ohmyzsh
     ohMyZsh = {
       enable = true;
@@ -214,7 +197,7 @@ virtualisation = {
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
   '';
- 
+
   # Editor
   programs.neovim = {
     enable = true;
@@ -230,15 +213,19 @@ virtualisation = {
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vedant = {
-    useDefaultShell = true;
     isNormalUser = true;
+    useDefaultShell = true;
     description = "Vedant";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
+      kdePackages.kate
+    #  thunderbird
       google-chrome
       tree-sitter
       spotify
+      spicetify-cli
       vscode
+      zed-editor
       stow
       swww
       grimblast
@@ -247,12 +234,6 @@ virtualisation = {
       mpv
       lazygit
       fd
-      #(pkgs.catppuccin-gtk.override {
-        # accents = [ "mauve" ]; # You can specify multiple accents here to output multiple themes
-        # size = "compact";
-        # tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
-        # variant = "mocha";
-        # })
     ];
   };
 
@@ -266,6 +247,15 @@ virtualisation = {
     };
   };
 
+  # Bluetooth
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
+
+  # Firefox
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-devedition-bin;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -273,7 +263,11 @@ virtualisation = {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
+    lxqt.lxqt-policykit
     tree
+    wl-gammarelay-rs
     gcc
     nwg-look
     # libsForQt5.polkit-qt
@@ -304,13 +298,16 @@ virtualisation = {
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+   enable = true;
+   # enableSSHSupport = true;
+ };
 
   # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -324,6 +321,6 @@ virtualisation = {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
