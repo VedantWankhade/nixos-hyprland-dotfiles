@@ -7,3 +7,7 @@
 * ~~Application themes~~
 * ~~Waybar redesign~~
 * ~~Fix adding ssh identity on each reboot (NixOS sshAgent config related)~~
+
+## Preview
+![Preview](/previews/preview.png)
+![Preview Neofetch](/previews/preview-fetch.png)
