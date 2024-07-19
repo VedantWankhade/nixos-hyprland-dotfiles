@@ -1,28 +1,24 @@
 #!/usr/bin/env bash
 
-options=("Shutdown" "Reboot" "Hibernate")
+# Define the menu options
+options="No I wanna stay!\nShutdown\nReboot\nHibernate"
 
-choice=$(printf "%s\n" "${options[@]}" | fzf)
-echo $choice
+# Display the menu and get the user's choice
+choice=$(echo -e $options | wofi --dmenu --prompt "Leaving? ")
 
-case $choice in
-    "Shutdown")
-        echo "Shutting down now..."
-        sleep 4
-        sudo shutdown now
+# Execute the appropriate command based on the user's choice
+case "$choice" in
+    Shutdown)
+        systemctl poweroff
         ;;
-    "Reboot")
-        echo "Rebooting now..."
-        sleep 4
-        sudo reboot
+    Reboot)
+        systemctl reboot
         ;;
-    "Hibernate")
-        echo "Hibernating now zzz"
-        sleep 4
-        sudo systemctl hibernate
+    Hibernate)
+        systemctl hibernate
         ;;
     *)
-        echo "Invalid option selected"
+        echo "Staying..."
         ;;
 esac
 
