@@ -225,6 +225,8 @@
       spotify
       spicetify-cli
       vscode
+      beekeeper-studio
+      insomnia
       zed-editor
       stow
       swww
