@@ -87,6 +87,17 @@
     '';
   };
 
+  # npm configuration
+  #environment.etc = {
+  #  "npmrc" = {
+  #    text = "prefix = \${HOME}/.npm-packages";
+  #    mode = "0644";
+  #    enable = true;
+  #    user = "vedant"; # Replace with your actual username
+  #    target = "/home/vedant/.npmrc"; # Replace with your actual username
+  #  };
+  #};
+
   # SSH
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
@@ -189,6 +200,11 @@
     if [ -x "$(command -v zoxide)" ]; then
       eval "$(zoxide init zsh)"
     fi
+
+    # for npm global package fix
+    npm set prefix ~/.npm-packages
+    export PATH=~/.npm-packages/bin:$PATH
+    export NODE_PATH=~/.npm-packages/lib/node_modules
 
     # export GTK_THEME='Catppuccin-Mocha-Compact-Mauve-Dark'
     # fzf theme
