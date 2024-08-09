@@ -98,6 +98,8 @@
   #  };
   #};
 
+  services.gnome.gnome-keyring.enable = true;
+
   # SSH
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
