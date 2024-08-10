@@ -18,6 +18,7 @@
             "1": "",
             "2": "",
             "3": "",
+            "8": "",
             "9": "",
             "10": "",
             "urgent": "",
@@ -182,7 +183,7 @@
   },
   "custom/logout": {
         "format": "",
-        "on-click": "kitty --execute ~/.config/waybar/logout.sh"
+        "on-click": "exec bash ~/.config/waybar/logout.sh"
     },
       "custom/wl-gammarelay-temperature": {
         "format": "{} ",
