@@ -100,6 +100,29 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  # snmp
+  # this is for snmp agent (to get resource stat of this computer)
+  # if you only want to use net-snmp as a snmp manager (to get resource stats of other servers) you dont need this
+  # just install net-snmp
+  #services.snmpd = {
+  #  enable = true;
+  #  openFirewall = true;
+  #  configText = ''
+  #    # Listen for connections from the local machine only
+  #    agentAddress  tcp:127.0.0.1:161
+  #
+  #    # Allow SNMPv1/v2c read access with a community string
+  #    rocommunity public localhost
+  #
+  #    # System information
+  #    sysLocation  "MH, IND"
+  #    sysContact   "vedantwankhade17@gmail.com"
+  #
+  #    # Trap settings (optional)
+  #    trapsink 127.0.0.1:162 public
+  #  '';
+  #};
+
   # SSH
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
@@ -237,7 +260,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      slack
       google-chrome
       tree-sitter
       spotify
@@ -284,6 +307,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gnumake
+    protonvpn-gui
+    net-snmp
     lxqt.lxqt-policykit
     tree
     wl-gammarelay-rs
