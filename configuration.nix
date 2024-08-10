@@ -259,6 +259,7 @@
     description = "Vedant";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
+      discord
       kdePackages.kate
       slack
       google-chrome
