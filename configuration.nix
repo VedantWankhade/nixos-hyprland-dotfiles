@@ -90,7 +90,11 @@
   };
 
   # Virtualisation
+  programs.dconf.enable = true;
+  services.spice-vdagentd.enable = true;
+
   virtualisation = {
+    # Containerisation
     containers.enable = true;
     # Docker
     #docker = {
@@ -116,6 +120,17 @@
       # server = "ghostunnel";
       #};
     };
+
+    # Virtual macines
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
   };
 
   # Tmux
@@ -312,7 +327,7 @@
     isNormalUser = true;
     useDefaultShell = true;
     description = "Vedant";
-    extraGroups = [ "networkmanager" "wheel" "docker" "podman" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "podman" "libvirtd" ];
     packages = with pkgs; [
       discord
       aseprite
@@ -364,6 +379,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    virt-manager
+    virt-viewer
+    spice spice-gtk
+    spice-protocol
+    win-virtio
+    win-spice
+    gnome.adwaita-icon-theme
     gnumake
     protonvpn-gui
     net-snmp
