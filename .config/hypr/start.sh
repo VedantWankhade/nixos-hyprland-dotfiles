@@ -2,7 +2,7 @@
 
 # lxqt-policykit-agent &
 swww init &
-swww img ~/.local/share/wallpapers/darker_unicat.jpeg &
+swww img ~/.local/share/wallpapers/red_moon_road.png &
 nm-applet --indicator &
 waybar &
 # dunst &
