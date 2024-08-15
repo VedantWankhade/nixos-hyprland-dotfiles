@@ -43,26 +43,27 @@
   virtualisation = {
     containers.enable = true;
     # Docker
-    docker = {
-      enable = true;
-      enableOnBoot = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-      daemon.settings = {
-        data-root = "/docker-data/data";
-      };
-    };
+    #docker = {
+    #  enable = true;
+    #  enableOnBoot = true;
+    #  rootless = {
+    #    enable = true;
+    #    setSocketVariable = true;
+    #  };
+    #  daemon.settings = {
+    #    data-root = "/docker-data/data";
+    #  };
+    #};
     # Podman
     podman = {
       enable = true;
-      # extraPackages = [ pkgs.podman-desktop pkgs.podman-compose ];
+      #extraPackages = [ pkgs.podman-desktop pkgs.podman-compose ];
       defaultNetwork.settings.dns_enabled = true;
-      # dockerCompat = true;
+      dockerSocket.enable = true;
+      dockerCompat = true;
       #networkSocket = {
-      #  enable = true;
-      #  server = "ghostunnel";
+      # enable = true;
+      # server = "ghostunnel";
       #};
     };
   };
@@ -101,9 +102,8 @@
   services.gnome.gnome-keyring.enable = true;
 
   # snmp
-  # this is for snmp agent (to get resource stat of this computer)
-  # if you only want to use net-snmp as a snmp manager (to get resource stats of other servers) you dont need this
-  # just install net-snmp
+  # only enable to make this device an snmp agent
+  # to install snmp manager just install net-snmp 
   #services.snmpd = {
   #  enable = true;
   #  openFirewall = true;
@@ -156,6 +156,13 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  # xdg
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+  };
 
   # Hyprland
   services.hypridle.enable = true;
@@ -257,9 +264,10 @@
     isNormalUser = true;
     useDefaultShell = true;
     description = "Vedant";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "podman" ];
     packages = with pkgs; [
       discord
+      podman-desktop
       kdePackages.kate
       slack
       google-chrome
