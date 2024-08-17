@@ -67,7 +67,7 @@
   # Enable thermald (only necessary if on Intel CPUs)
   services.thermald.enable = true;
 
-  # Epic Gaming (its just steam)
+  # Epic Gaming (its just steam and heroic)
   programs.steam = {
     enable = true;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
@@ -415,6 +415,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    heroic
     wineWowPackages.stable
     virt-manager
     virt-viewer
