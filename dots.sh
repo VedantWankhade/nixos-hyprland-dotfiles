@@ -39,6 +39,12 @@ stow --no-folding .
 echo "Running post install hooks"
 echo "Cleaning bat cache"
 bat cache --build
+
+echo "Setting up flathub and installing flatpak apps"
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install -y flathub io.github.zen_browser.zen
+flatpak install -y flathub com.github.tchx84.Flatseal
+
 echo "Installing vscode extensions"
 while IFS= read -r line; do
     code --install-extension "$line"
