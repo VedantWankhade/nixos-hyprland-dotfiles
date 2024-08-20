@@ -45,27 +45,27 @@
   #services.tlp.enable = true;
   # taken from https://github.com/TechsupportOnHold/Batterylife/blob/main/laptop.nix
   # Better scheduling for CPU cycles - thanks System76!!!
-  services.system76-scheduler.settings.cfsProfiles.enable = true;
+  #services.system76-scheduler.settings.cfsProfiles.enable = true;
 
   # Enable TLP (better than gnomes internal power manager)
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-    };
-  };
+  #services.tlp = {
+   # enable = true;
+   # settings = {
+   #   CPU_BOOST_ON_AC = 1;
+   #   CPU_BOOST_ON_BAT = 0;
+   #   CPU_SCALING_GOVERNOR_ON_AC = "performance";
+   #   CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+   # };
+  #};
 
   # Disable GNOMEs power management
-  services.power-profiles-daemon.enable = false;
+  services.power-profiles-daemon.enable = true;
 
   # Enable powertop
-  powerManagement.powertop.enable = true;
+  #powerManagement.powertop.enable = true;
 
   # Enable thermald (only necessary if on Intel CPUs)
-  services.thermald.enable = true;
+  #services.thermald.enable = true;
 
   # Epic Gaming (its just steam and heroic)
   programs.steam = {
@@ -73,7 +73,13 @@
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     extraPackages = [ pkgs.gamescope ];
   };
-
+ 
+  # Fan control
+ # programs.corectrl.enable = true;
+ # programs.coolercontrol = {
+ # enable = true;
+ #   nvidiaSupport = true;
+#};
   # GPU
   hardware.opengl = {
     enable = true;
@@ -111,13 +117,13 @@
     # nvidia optimus
     prime = {
       # sync mode
-      sync.enable = true;
+      # sync.enable = true;
 
       # OR offload mode
-      #offload = {
-      #  enable = true;
-      #  enableOffloadCmd = true;
-      #};
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
 
       # Make sure to use the correct Bus ID values for your system!
       intelBusId = "PCI:0:2:0";
@@ -125,6 +131,9 @@
     };
   };
 
+  # Flatpak
+  services.flatpak.enable = true;
+ 
   # Virtualisation
   programs.dconf.enable = true;
   services.spice-vdagentd.enable = true;
