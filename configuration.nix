@@ -133,7 +133,7 @@
 
   # Flatpak
   services.flatpak.enable = true;
- 
+  
   # Appimages
   programs.appimage = {
     enable = true;
@@ -277,6 +277,11 @@
     wlr.enable = true;
     xdgOpenUsePortal = true;
   };
+
+  # qt theme
+  qt.style = "breeze";
+  qt.enable = true;
+  qt.platformTheme = "kde";
 
   # Hyprland
   services.hypridle.enable = true;
