@@ -279,6 +279,9 @@
     xdgOpenUsePortal = true;
   };
 
+  # for electron apps
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # qt theme
   qt.style = "breeze";
   qt.enable = true;
