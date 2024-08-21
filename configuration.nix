@@ -275,6 +275,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde];
     xdgOpenUsePortal = true;
   };
 
@@ -387,6 +388,7 @@
     packages = with pkgs; [
       discord
       aseprite
+      stremio
       podman-desktop
       kdePackages.kate
       slack
