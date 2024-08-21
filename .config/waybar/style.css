@@ -209,11 +209,17 @@ label:focus {
     background-color: #f53c3c;
 }
 
-#custom-logout {
+#custom-power-profile, #custom-logout {
     font-size: 26px;
     color: @red;
     margin-right: 4px;
     border-top: 2px solid @red;
+}
+
+#custom-power-profile {
+    color: @lavender;
+    margin-right: 6px;
+    border-top: 2px solid @lavender;
 }
 
 #custom-media {

@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/scratchpad", "custom/media"],
     "modules-center": ["cpu", "memory", "temperature" ],
-    "modules-right": ["tray", "custom/notification", "mpd", "pulseaudio", "network", "backlight","custom/wl-gammarelay-temperature", "battery", "battery#bat2", "clock", "custom/logout"],
+    "modules-right": ["tray", "custom/notification", "mpd", "pulseaudio", "network", "backlight","custom/wl-gammarelay-temperature", "battery", "battery#bat2", "clock", "custom/power-profile", "custom/logout"],
     // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -184,9 +184,14 @@
     "escape": true
   },
   "custom/logout": {
-        "format": "",
+        "format": "",
         "on-click": "exec bash ~/.config/waybar/logout.sh"
     },
+"custom/power-profile": {
+        "format": "",
+        "on-click": "exec bash ~/.config/waybar/power-profile.sh"
+    },
+
       "custom/wl-gammarelay-temperature": {
         "format": "{} ",
         "exec": "wl-gammarelay-rs watch {t}",
