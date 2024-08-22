@@ -80,6 +80,10 @@
  # enable = true;
  #   nvidiaSupport = true;
 #};
+
+  # lid close behaviour
+  services.logind.lidSwitch = "ignore";
+
   # GPU
   hardware.opengl = {
     enable = true;
