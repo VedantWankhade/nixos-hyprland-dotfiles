@@ -113,7 +113,7 @@
     # of just the bare essentials.
     powerManagement.enable = true;
   
-    dynamicBoost.enable = true;
+    #dynamicBoost.enable = true; # not working currently
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -420,7 +420,7 @@
       tree-sitter
       spotify
       spicetify-cli
-      vscode
+      vscode.fhs
       beekeeper-studio
       insomnia
       zed-editor
