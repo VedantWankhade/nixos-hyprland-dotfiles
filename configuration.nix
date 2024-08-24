@@ -100,6 +100,7 @@
   services.logind.lidSwitch = "ignore";
 
   # GPU
+  nixpkgs.config.nvidia.acceptLicense = true;
   hardware.opengl = {
     enable = true;
   };
@@ -113,7 +114,7 @@
     # of just the bare essentials.
     powerManagement.enable = true;
   
-    #dynamicBoost.enable = true; # not working currently
+    #dynamicBoost.enable = true;
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -126,14 +127,17 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = true;
+    # official nvidia open source drivers work better for me
+    # fixes awfully long launch times with electron apps on wayland
+    # disabled to use legacy_470
+    open = false;
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
 
     # nvidia optimus
     prime = {
