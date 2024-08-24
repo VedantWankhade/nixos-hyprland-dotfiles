@@ -73,6 +73,21 @@
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     extraPackages = [ pkgs.gamescope ];
   };
+
+  # Local AI
+  hardware.nvidia-container-toolkit.enable = true;
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
+  services.open-webui = {
+    enable = true;
+    port = 8888;
+    openFirewall = true;
+    environment = {
+      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
+    };
+  };
  
   # Fan control
  # programs.corectrl.enable = true;
