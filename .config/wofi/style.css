@@ -1,0 +1,15 @@
+#window {
+    background-color: #1e1e2e;
+    font-size: 16px;
+}
+
+#input {
+    padding: 10px 0; 
+    background-color: #11111b;
+    color: #f2cdcd;
+}
+
+.entry {
+    margin: 0 5px;
+    padding: 10px 5px;
+}
