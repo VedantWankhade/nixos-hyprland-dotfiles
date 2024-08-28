@@ -174,8 +174,8 @@
     containers.enable = true;
     # Docker
     #docker = {
-    #  enable = true;
-    #  enableOnBoot = true;
+    # enable = true;
+    # enableOnBoot = true;
     #  rootless = {
     #    enable = true;
     #    setSocketVariable = true;
@@ -187,7 +187,7 @@
     # Podman
     podman = {
       enable = true;
-      #extraPackages = [ pkgs.podman-desktop pkgs.podman-compose ];
+      extraPackages = [ pkgs.podman-desktop pkgs.podman-compose ];
       defaultNetwork.settings.dns_enabled = true;
       dockerSocket.enable = true;
       dockerCompat = true;
@@ -331,7 +331,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  #sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -414,15 +414,15 @@
     description = "Vedant";
     extraGroups = [ "networkmanager" "wheel" "docker" "podman" "libvirtd" ];
     packages = with pkgs; [
+      dotool
       discord
       aseprite
       stremio
-      podman-desktop
       kdePackages.kate
       slack
-      google-chrome
+      #google-chrome
       tree-sitter
-      spotify
+      #spotify
       spicetify-cli
       vscode.fhs
       beekeeper-studio
@@ -454,10 +454,10 @@
   hardware.bluetooth.enable = true;
 
   # Firefox
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition-bin;
-  };
+  #programs.firefox = {
+   # enable = true;
+    #package = pkgs.firefox-devedition-bin;
+  #};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -466,6 +466,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     heroic
+    podman-desktop
+    #podman-compose
     poweralertd
     wineWowPackages.stable
     virt-manager
