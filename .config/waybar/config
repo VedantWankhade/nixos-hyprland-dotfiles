@@ -160,7 +160,9 @@
         "interval": 5,
         "tooltip": false,
         "exec": "playerctl metadata --format='{{ title }}'",
-        "on-click": "playerctl play-pause",
+        "on-click-middle": "playerctl play-pause",
+        "on-click": "playerctl next",
+        "on-click-right": "playerctl previous",
         "max-length": 50
     },
     "custom/notification": {
