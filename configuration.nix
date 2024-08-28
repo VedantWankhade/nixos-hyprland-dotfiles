@@ -96,12 +96,15 @@
  #   nvidiaSupport = true;
 #};
 
+  # dict
+  services.dictd.enable = true;
+
   # lid close behaviour
   services.logind.lidSwitch = "ignore";
 
   # GPU
   nixpkgs.config.nvidia.acceptLicense = true;
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -476,7 +479,7 @@
     spice-protocol
     win-virtio
     win-spice
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     gnumake
     protonvpn-gui
     net-snmp
